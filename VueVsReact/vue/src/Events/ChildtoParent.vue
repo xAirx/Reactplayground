@@ -1,6 +1,12 @@
 <!---/// Emit method Vue.js way In Vue.js,
 child component notifies event with $emit
-method to its parent. --->
+method to its parent.
+
+Events are essentially callbacks that are called when something
+happened in the child component. Vue sees events as a first-class
+ citizen, so you can “listen” to them with @, which is shorthand
+ for the v-on directive.
+ --->
 
 <template>
   <div>

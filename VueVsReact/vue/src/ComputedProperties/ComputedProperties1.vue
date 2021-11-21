@@ -1,6 +1,6 @@
 Without computed properties:
 
-<!-- ReversedMessage.vue -->
+<!-- Without computed ReversedMessage.vue -->
 
 <template>
   <p>{{ message.split("").reverse().join("") }}</p>
@@ -16,7 +16,7 @@ export default function ReversedMessage({ message }) { return
 <p>{message.split('').reverse().join('')}</p>
 ; }
 
-<!-- ReversedMessage.vue -->
+<!-- With computed ReversedMessage.vue -->
 
 <template>
   <p>{{ reversedMessage }}</p>
