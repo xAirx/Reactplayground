@@ -43,6 +43,8 @@ const Greet = ({ name, age }) => {
   );
 };
 
+// Example with destructuring and mapping data
+
 import React from "react";
 
 const MapData = ({ data }) => {

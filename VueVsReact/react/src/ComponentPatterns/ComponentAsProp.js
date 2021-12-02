@@ -1,12 +1,15 @@
-/* In React, it is much simpler. I think the slots overcomplicate things a lot. As React uses JSX, we can just get away with passing the component to be rendered as a prop.
+/* In React, it is much simpler. I think the slots overcomplicate things a lot.
+ As React uses JSX, we can just get away with passing the component to be rendered as a prop.
  */
+
 import React from 'react'
 import Child from './Child'
 
 ///Parent.js
 
 
-function Parent() {
+function Parent () {
+
   const compToBeRendered = (
     <div>
       <h1>Hello</h1>
