@@ -1,13 +1,26 @@
 /* The Rest Operator (…), three dots, in ES6 comes with some caveats:
 
-you can use the rest operator at most once
-the rest operator must appear at the end
 
-What does the rest operator (…) do? It copies all remaining properties of the destructuring source into its operand,
-without the ones that were already mentioned in the object literal.
+/* The Rest Parameter And Spread Syntax
 
-Let’s have a look at a rest operator example working with Object Destructuring:
-*/
+The new (…) operator that was added in ES6 can
+be used in destructuring.If the(…) operator
+appear on the left - hand side in destructuring
+ then it is a REST PARAMETER.A Rest parameter
+ is used to map all the remaining elements in the
+  array that have not been mapped to the rest
+  variable itself.It is like gathering what is left
+behind.The Rest variable must always be the last
+ otherwise a SyntaxError is thrown. */
+
+var planets = ["Mercury", "Earth", "Venus", "Mars", "Pluto", "Saturn"];
+var [first, , third, ...others] = planets;
+
+console.log(first); //Output: Mercury
+console.log(third); //Output: Venus
+console.log(others); //Output: ["Mars", "Pluto", "Saturn"]
+
+// more examples
 
 const obj = { elem1: 1, elem2: 2, elem3: 3 };
 
