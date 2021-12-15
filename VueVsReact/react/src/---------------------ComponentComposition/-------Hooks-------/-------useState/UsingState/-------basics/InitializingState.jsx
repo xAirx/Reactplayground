@@ -12,7 +12,9 @@ function Bulbs() {
 /*
 useState(false) initializes the state with false.
 
-Having the state enabled and initialized, how do you read it ? Let's see what useState(false) returns.
+Having the state enabled and initialized, how do you read it ?
+
+Let's see what useState(false) returns.
 
  */
 

@@ -1,4 +1,5 @@
 /* 5. Side-effect cleanup
+https://javascript.plainenglish.io/the-react-useeffect-hook-explained-with-examples-95259b3ac89f
 
 Some side-effects need cleanup: close a socket, clear timers.
 
@@ -67,3 +68,38 @@ function RepeatMessage({ message }) {
 
 /* Open the demo and type some messages: only the latest message logs to console.
  */
+
+// Example 2
+
+/* The cleanup function
+
+When your application needs to define a lot of side effects, then you will have to use a cleanup function that will clean up each side effect when it happens. Otherwise, you will affect your application performance.
+
+Let’s take a simple example where you will have a web page that shows the screen width in pixels when a user resizes the page. For this, we will need a resize event.
+
+Here is the example: */
+
+import { useState, useEffect } from "react";
+
+const App = () => {
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setScreenWidth(window.innerWidth);
+    }); // Return the cleanup function which cleans the effect(event).
+    return () => {
+      window.removeEventListener("resize", () => {
+        setScreenWidth(window.innerWidth);
+      });
+    };
+  });
+  return (
+    <>
+      <div>{screenWidth}</div>
+    </>
+  );
+};
+
+/* As you can see above, we used the state hook to update the screen width. Then we used the effect hook useEffect to perform the resize event which allows updating the screen width whenever you resize the page in your browser.
+
+The cleanup function is returned inside the callback function and it allows us to remove the events after they happen. */

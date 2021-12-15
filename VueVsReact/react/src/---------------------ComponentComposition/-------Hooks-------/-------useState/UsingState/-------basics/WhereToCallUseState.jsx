@@ -52,11 +52,13 @@ function Switch({ isSwitchEnabled }) {
 
 function Switch() {
   let on = false;
-  let setOn = () => {};
+  let setOn = () => { };
+
   function enableSwitch() {
     // Bad
     [on, setOn] = useState(false);
   }
+
   return (
     <button onClick={enableSwitch}>
       Enable light switch state
