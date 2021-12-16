@@ -3,6 +3,14 @@ Updating the state with a value
 
 As you know already, useState(initialState) returns an array where the first item is the state value. Luckily, the second item is a function that updates the state! */
 
+/*
+You have to use setState
+
+The reason it can be confusing: if you change the parent's state by hand (bad practice!), the object will change in the child component, too. But won't trigger re-render! (The child component won't "know" that its props has changed.) So you won't see the UI change.
+
+However if you change the parent's state with setState (the preferred practice), the child will be notified, that it must re-render itself.
+ */
+
 const [state, setState] = useState(initialState);
 // changes state to `newState` and triggers re-rendering
 setState(newState);

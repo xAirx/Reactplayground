@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { updateTodo, toggled } from "./TodosState";
 
 function Input({ todoId, updateTodo }) {
+  // const so we cant change it, only with our setter
   const [newTodo, setNewTodo] = useState("");
 
   return (

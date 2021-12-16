@@ -2,9 +2,22 @@
 is the case where you use useState's initial value as a function?
 Is there any difference from just passing a value? */
 
+// Arrow Function into initialstate ONLY RUNS ON FIRST RENDER
+
 https://stackoverflow.com/questions/60120261/when-to-use-usestate-initial-value-as-function
 
 const [state, setState] = useState(() => someValue);
+
+
+// A function passed in runs every RENDER.
+
+const InitialState = () => {
+  console.log("Hi");
+}
+
+// this runs EVERY render.
+const [state, setState] = useState(InitialState());
+
 
 /* I think it is more or less clear from the docs: */
 

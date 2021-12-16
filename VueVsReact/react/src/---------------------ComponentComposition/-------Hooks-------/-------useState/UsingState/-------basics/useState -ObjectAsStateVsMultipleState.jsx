@@ -115,3 +115,65 @@ function handleSortCount() {
   const isReverse = sort.property === "count" && !sort.isReverse;
   setSort({ property: "count", isReverse });
 }
+
+// Another example
+
+// Using an object as state, we have to remember to spread
+// The previous state.
+const [state, setState] = React.useState({ count: 4, theme: "blue" });
+const count = state.count;
+const theme = state.theme;
+
+function decrementCount() {
+  // When you use the setState value it is not merging like it does in
+  // Class Components.
+
+  // In classcomponents it would merge the state object with the current state.
+  // It is overwriting it.
+
+  // Since it is being overwritten we have to use the spread operator
+  // For the previous state.
+
+  // Automatic merging does not happen, because when we use useState,
+  // it will become asynchronous. since we can have multiple state instances.
+  setState((prevState) => ({
+    ...prevState,
+    count: prevState.count - 1,
+  }));
+}
+
+function decrementCount2() {
+  setState((prevState) => {
+    return { ...prevState, count: prevState.count - 1 };
+  });
+}
+
+function changeColor() {
+  setState((prevState) => {
+    return { ...prevState, count: prevState.count - 1 };
+  });
+}
+
+// An easier way to do it is to have multiple setstate.
+// Then we dont have to deal with the above. and can do:
+
+const [state, setState] = React.useState({ count: 4 });
+const [state, setState] = React.useState({ theme: "blue" });
+const count = state.count;
+const theme = state.theme;
+
+setState((prevState) => ({
+  count: prevState.count - 1,
+}));
+
+function decrementCount2() {
+  setState((prevState) => {
+    return { count: prevState.count - 1 };
+  });
+}
+
+function changeColor() {
+  setState((prevState) => {
+    return { count: prevState.count - 1 };
+  });
+}
