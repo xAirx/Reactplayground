@@ -1,29 +1,29 @@
-import React from 'react';
-import sortBy from 'lodash.sortby';
-import { v4 as uuidv4 } from 'uuid';
+import React from "react";
+import sortBy from "lodash.sortby";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [name, setName] = React.useState('');
+  const [name, setName] = React.useState("");
 
   const [list, setList] = React.useState([
-    { id: '1', name: 'Apple', count: 5 },
-    { id: '2', name: 'Banana', count: 3 },
-    { id: '3', name: 'Peach', count: 10 },
+    { id: "1", name: "Apple", count: 5 },
+    { id: "2", name: "Banana", count: 3 },
+    { id: "3", name: "Peach", count: 10 },
   ]);
 
   const [sort, setSort] = React.useState({
-    property: 'name',
+    property: "name",
     isReverse: false,
   });
 
   function handleSortName() {
-    const isReverse = sort.property === 'name' && !sort.isReverse;
-    setSort({ property: 'name', isReverse });
+    const isReverse = sort.property === "name" && !sort.isReverse;
+    setSort({ property: "name", isReverse });
   }
 
   function handleSortCount() {
-    const isReverse = sort.property === 'count' && !sort.isReverse;
-    setSort({ property: 'count', isReverse });
+    const isReverse = sort.property === "count" && !sort.isReverse;
+    setSort({ property: "count", isReverse });
   }
 
   function handleChange(event) {
@@ -41,7 +41,7 @@ function App() {
   }
 
   const sortedList = React.useMemo(() => {
-    console.log('Calculates computed properties ...');
+    console.log("Calculates computed properties ...");
 
     return sort.isReverse
       ? sortBy(list, sort.property).reverse()
@@ -78,11 +78,3 @@ function App() {
 }
 
 export default App;
-
-    © 2021 GitHub, Inc.
-
-    Terms
-    Privacy
-    Security
-    Status
-    Docs
