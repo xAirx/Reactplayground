@@ -31,6 +31,8 @@ const App = () => {
 
 /* Example 2 - useEffect with Async / Await
  */
+
+
 /* If you’re using async / await, then you will have to create a separate
 function because the effect callback is anonymous and cannot be async.
 
@@ -59,6 +61,8 @@ const App = () => {
     </>
   );
 };
+
+
 /*
 As you can see above, this is how to fetch data with useEffect.
 It’s similar to Vanilla JavaScript, you’re just using the effect hook. */

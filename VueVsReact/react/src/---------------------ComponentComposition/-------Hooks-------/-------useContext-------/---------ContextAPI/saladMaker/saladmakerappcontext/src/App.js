@@ -53,7 +53,6 @@ function App() {
         </span>
       </h1>
       <SaladBuilder ingredients={ingredients} />
-      <SaladMaker />
     </div>
   );
 }

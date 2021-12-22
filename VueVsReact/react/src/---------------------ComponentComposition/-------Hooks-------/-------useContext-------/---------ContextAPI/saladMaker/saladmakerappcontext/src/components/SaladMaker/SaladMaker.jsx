@@ -4,6 +4,7 @@ const useStyles = createUseStyles({
   wrapper: {
     padding: "10px",
     textAlign: "center",
+    borderTop: "1px solid #ccc",
   },
 });
 

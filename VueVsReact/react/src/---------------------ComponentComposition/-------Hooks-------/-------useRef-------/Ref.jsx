@@ -2,14 +2,22 @@
  The object's current property contains reference for the DOM.
  */
 
- //useRef allows us to easily use react refs.
- Refs and useRef
+//useRef allows us to easily use react refs.
 
-Refs are a special attribute that are available on all React components. They allow us to create a reference to a given element / component when the component mounts
+/* Refs and useRef
 
-useRef allows us to easily use React refs. We call useRef (at the top of the component) and attach the returned value to the element's ref attribute to refer to it.
+Refs are a special attribute that are available on all React components.
+They allow us to create a reference to a given element / component when the component mounts
+useRef allows us to easily use React refs.
+We call useRef(at the top of the component) and attach the returned value to the element's ref attribute to refer to it.
+Once we create a reference, we use the current property to modify(mutate) the element's properties.
+Or we can call any available methods on that element(like.focus() to focus an input).
 
-Once we create a reference, we use the current property to modify (mutate) the element's properties. Or we can call any available methods on that element (like .focus() to focus an input).
+Why is this useful ? It can be useful for things like holding on to `setInterval` and`setTimeout`
+IDs so they can be cleared later.Or any bit of statefulness that _could_ change but you don't want it
+to cause a re - render when it does.
+
+It's also useful for referencing DOM nodes directly */
 
 function App() {
   const [query, setQuery] = React.useState("react hooks");
@@ -28,7 +36,7 @@ function App() {
     <form>
       <input
         type="text"
-        onChange={event => setQuery(event.target.value)}
+        onChange={(event) => setQuery(event.target.value)}
         ref={searchInput}
       />
       <button type="submit">Search</button>
