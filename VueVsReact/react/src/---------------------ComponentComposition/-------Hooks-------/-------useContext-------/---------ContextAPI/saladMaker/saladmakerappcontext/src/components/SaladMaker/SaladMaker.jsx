@@ -1,3 +1,4 @@
+import React, { useReducer, createContext } from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -8,14 +9,23 @@ const useStyles = createUseStyles({
   },
 });
 
+export const SaladContext = createContext();
+
+function reducer(state, item) {
+  return [...state, item];
+}
+
 const SaladMaker = ({ chosenSalad }) => {
+  const [salad, setSalad] = useReducer(reducer, []);
   const classes = useStyles();
 
   return (
-    <div className={classes.wrapper}>
-      <h1>Your Custom Salad</h1>
-      {chosenSalad}
-    </div>
+    <SaladContext.Provider value={[salad, setSalad]}>
+      <div className={classes.wrapper}>
+        <h1>Your Custom Salad</h1>
+        {chosenSalad}
+      </div>
+    </SaladContext.Provider>
   );
 };
 

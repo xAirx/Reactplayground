@@ -3,6 +3,12 @@ import Navigation from "./components/Navigation/Navigation";
 import SaladMaker from "./components/SaladMaker/SaladMaker";
 import SaladBuilder from "./components/SaladBuilder/SaladBuilder";
 import { createUseStyles } from "react-jss";
+import UserContext from "./components/User/User";
+
+const user = {
+  name: "Kwame",
+  favorites: ["avocado", "carrot"],
+};
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -40,7 +46,7 @@ const ingredients = [
 function App() {
   const classes = useStyles();
   return (
-    <div className="App">
+    <UserContext.Provider value={user}>
       <Navigation />
       <h1 className={classes.wrapper}>
         <span role="img" aria-label="salad">
@@ -53,7 +59,7 @@ function App() {
         </span>
       </h1>
       <SaladBuilder ingredients={ingredients} />
-    </div>
+    </UserContext.Provider>
   );
 }
 

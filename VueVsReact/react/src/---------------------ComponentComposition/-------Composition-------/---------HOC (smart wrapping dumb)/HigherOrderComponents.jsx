@@ -2,9 +2,24 @@
 
 Focus: Data Manipulation
 
+https://www.patterns.dev/posts/hoc-pattern/
 
 Explanation: a HOC is like a man in the middle between parent and child component, reading props, changing them, adding props, fetching data, etc.
 
+Using Higher Order Components makes it possible to provide the same logic to many components, while keeping that logic all in one single place.
+
+Hooks allow us to add custom behavior from within the component, which could potentially increase the risk of introducing bugs compared to the HOC pattern if multiple components rely on this behavior.
+
+Best use-cases for a HOC:
+
+    The same, uncustomized behavior needs to be used by many components throughout the application.
+    The component can work standalone, without the added custom logic.
+
+Best use-cases for Hooks:
+
+    The behavior has to be customized for each component that uses it.
+    The behavior is not spread throughout the application, only one or a few components use the behavior.
+    The behavior adds many properties to the component
 
 
 You can use it in any way you want. Basically what it does is:

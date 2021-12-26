@@ -1,5 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useContext } from "react";
 import { createUseStyles } from "react-jss";
+import UserContext from "./components/User/User";
+import { SaladContext } from "../SaladMaker/SaladMaker";
 
 const useStyles = createUseStyles({
   add: {
@@ -26,13 +28,18 @@ const useStyles = createUseStyles({
   },
 });
 
+const reducer = (key) => +1;
+
 const SaladItem = ({ image, name, chooseSalad }) => {
+  const user = useContext(UserContext);
+  const favorite = user.favorites.includes(name);
+
   const saladRef = useRef();
   const classes = useStyles();
-  const [favorite, setFavorite] = useState(true);
+
   return (
     <div ref={saladRef} className={classes.wrapper}>
-      <h3>{name}</h3>
+      <h3>{user.name}</h3>
       <span
         className={classes.favorite}
         aria-label={favorite ? "Favorite" : "Not Favorite"}

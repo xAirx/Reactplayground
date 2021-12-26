@@ -2,7 +2,7 @@
 /*
 A More Practical Higher-Order Component
 
-
+https://www.patterns.dev/posts/hoc-pattern/
 https://codesandbox.io/s/react-patterns-hoc-search-example-dcjry?file=/src/HOC.js
 
 
