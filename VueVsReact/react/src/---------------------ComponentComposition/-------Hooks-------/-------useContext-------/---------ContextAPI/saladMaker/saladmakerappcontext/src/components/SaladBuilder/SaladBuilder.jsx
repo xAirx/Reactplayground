@@ -1,7 +1,8 @@
 import SaladItem from "../../components/SaladItem/Saladitem";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import SaladMaker from "../../components/SaladMaker/SaladMaker";
 import { createUseStyles } from "react-jss";
+import { SaladContext } from "../SaladMaker/SaladMaker";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -14,35 +15,28 @@ const useStyles = createUseStyles({
 
 const SaladBuilder = ({ ingredients }) => {
   const [saladIngredients, setIngredients] = useState([]);
-  const [chosenSalad, setChosenSalad] = useState();
-
-  // Callback from saladItem setting chosenSalad.
-  const chooseSalad = (salad) => {
-    // get Salad på DOMREF? (useref)?
-    setChosenSalad(salad);
-  };
 
   useEffect(() => {
     setIngredients(ingredients);
   }, [ingredients]);
-
-  const testChosenSalad = "test";
 
   const classes = useStyles();
 
   return (
     <>
       <div className={classes.wrapper}>
-        {ingredients.map((ingredient) => (
-          <SaladItem
-            key={ingredient.name}
-            image={ingredient.image}
-            name={ingredient.name}
-            chooseSalad={chooseSalad}
-          />
-        ))}
+        {saladIngredients ? (
+          saladIngredients.map((ingredient) => (
+            <SaladItem
+              key={ingredient.name}
+              image={ingredient.image}
+              name={ingredient.name}
+            />
+          ))
+        ) : (
+          <h1>No ingredients Set yet</h1>
+        )}
       </div>
-      <SaladMaker chosenSalad={testChosenSalad} />
     </>
   );
 };

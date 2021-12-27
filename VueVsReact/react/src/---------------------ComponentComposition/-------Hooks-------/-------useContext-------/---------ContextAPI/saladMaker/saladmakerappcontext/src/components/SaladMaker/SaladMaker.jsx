@@ -1,5 +1,7 @@
 import React, { useReducer, createContext } from "react";
 import { createUseStyles } from "react-jss";
+import SaladBuilder from "../Saladbuilder/SaladBuilder";
+import SaladSummary from "../SaladSummary/SaladSummary";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -22,8 +24,8 @@ const SaladMaker = ({ chosenSalad }) => {
   return (
     <SaladContext.Provider value={[salad, setSalad]}>
       <div className={classes.wrapper}>
-        <h1>Your Custom Salad</h1>
-        {chosenSalad}
+        <SaladBuilder />
+        <SaladSummary />
       </div>
     </SaladContext.Provider>
   );
