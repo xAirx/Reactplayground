@@ -1,8 +1,6 @@
 import SaladItem from "../../components/SaladItem/Saladitem";
-import { useState, useEffect, useContext } from "react";
-import SaladMaker from "../../components/SaladMaker/SaladMaker";
+import { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
-import { SaladContext } from "../SaladMaker/SaladMaker";
 
 const useStyles = createUseStyles({
   wrapper: {
@@ -13,20 +11,48 @@ const useStyles = createUseStyles({
   },
 });
 
-const SaladBuilder = ({ ingredients }) => {
-  const [saladIngredients, setIngredients] = useState([]);
+const SaladBuilder = () => {
+  const ingredients = [
+    {
+      image: "🍎",
+      name: "apple",
+    },
+    {
+      image: "🥑",
+      name: "avocado",
+    },
+    {
+      image: "🥦",
+      name: "broccoli",
+    },
+    {
+      image: "🥕",
+      name: "carrot",
+    },
+    {
+      image: "🍷",
+      name: "red wine dressing",
+    },
+    {
+      image: "🍚",
+      name: "seasoned rice",
+    },
+  ];
+
+  /*   const [saladIngredients, setIngredients] = useState([]);
 
   useEffect(() => {
     setIngredients(ingredients);
   }, [ingredients]);
+ */
 
   const classes = useStyles();
 
   return (
     <>
       <div className={classes.wrapper}>
-        {saladIngredients ? (
-          saladIngredients.map((ingredient) => (
+        {ingredients ? (
+          ingredients.map((ingredient) => (
             <SaladItem
               key={ingredient.name}
               image={ingredient.image}

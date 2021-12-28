@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { createUseStyles } from "react-jss";
-import UserContext from "./components/User/User";
+import { UserContext } from "../User/User";
 const useStyles = createUseStyles({
   wrapper: {
     borderBottom: "1px solid #ccc",

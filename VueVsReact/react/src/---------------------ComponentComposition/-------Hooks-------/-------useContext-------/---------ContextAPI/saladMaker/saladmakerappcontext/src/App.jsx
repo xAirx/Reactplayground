@@ -1,72 +1,28 @@
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import SaladMaker from "./components/SaladMaker/SaladMaker";
-import SaladBuilder from "./components/SaladBuilder/SaladBuilder";
 import { createUseStyles } from "react-jss";
-import UserContext from "./components/User/User";
+import { UserContext } from "./components/User/User";
 
 const user = {
   name: "Kwame",
   favorites: ["avocado", "carrot"],
 };
 
-const useStyles = createUseStyles({
-  wrapper: {
-    textAlign: "center",
-  },
-});
-
-const ingredients = [
-  {
-    image: "🍎",
-    name: "apple",
-  },
-  {
-    image: "🥑",
-    name: "avocado",
-  },
-  {
-    image: "🥦",
-    name: "broccoli",
-  },
-  {
-    image: "🥕",
-    name: "carrot",
-  },
-  {
-    image: "🍷",
-    name: "red wine dressing",
-  },
-  {
-    image: "🍚",
-    name: "seasoned rice",
-  },
-];
-
 function App() {
-  const classes = useStyles();
   return (
-    <UserContext.Provider value={user}>
-      <Navigation />
-      <h1 className={classes.wrapper}>
-        <span role="img" aria-label="salad">
-          🥗{" "}
-        </span>
-        Build Your Custom Salad!
-        <span role="img" aria-label="salad">
-          {" "}
-          🥗
-        </span>
-      </h1>
-      <SaladBuilder ingredients={ingredients} />
-    </UserContext.Provider>
+    <>
+      <UserContext.Provider value={user}>
+        <Navigation />
+        <SaladMaker />
+      </UserContext.Provider>
+    </>
   );
 }
 
 export default App;
 
-/*
-This means that you can share information between a parent component and a deeply
+/* This means that you can share information between a parent component and a deeply
 nested child component, or store site - wide data in a single place and access them
 anywhere in the application.
 
@@ -89,4 +45,4 @@ Context provides the most value as applications start to grow, so in this step
 you’ll build several components to show how context works across a component tree.
 
 For smaller components or libraries, you can often use wrapping components and
-lower level state management techniques, like React Hooks and class-based management. */
+lower level state management techniques, like React Hooks and class-based management.  */

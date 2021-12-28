@@ -1,6 +1,6 @@
-import { useRef, useContext, useReducer } from "react";
+import { useContext, useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
-import UserContext from "./components/User/User";
+import { UserContext } from "../User/User";
 import { SaladContext } from "../SaladMaker/SaladMaker";
 
 const useStyles = createUseStyles({
@@ -28,40 +28,66 @@ const useStyles = createUseStyles({
   },
 });
 
-const reducer = (key) => +1;
-
-const SaladItem = ({ image, name, chooseSalad }) => {
+export default function SaladItem({ image, name }) {
+  const classes = useStyles();
+  const { salad, setSalad } = useContext(SaladContext);
   const user = useContext(UserContext);
   const favorite = user.favorites.includes(name);
-  const saladRef = useRef();
-  const classes = useStyles();
-  const { setSalad } = useContext(SaladContext);
-  const [id, updateId] = useReducer(reducer, 0);
+  const [chosenSalad, setChosenSalad] = useState(salad);
+  const currentContext = salad;
 
-  function update() {
-    setSalad({
-      name,
-      id: `${name}-${id}`,
+  /*  useEffect(() => {
+    setSalad(() => {
+      console.log(
+        "THIS IS SALAD NOW in internal state, setting SetSalad with",
+        chosenSalad
+      );
+
+      console.log("THIS IS OUR NEW OBJECT", salad.concat(chosenSalad));
+      return salad.concat(chosenSalad);
     });
-    updateId();
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chosenSalad]);
+
+  useEffect(() => {
+    console.log("THIS IS SALAD NOW in internal state", salad);
+  }, [chosenSalad]);
+
+  useEffect(() => {
+    console.log("THIS IS SALAD NOW IN CONTEXT", salad);
+  }, [salad]); */
+
+  const setSaladContext = () => {
+    console.log("THIS IS THE NEW SALAD ITEM", name);
+    setSalad(
+      // setting state in a functional manner, getting the previous state,
+      // this is the shallow reference to the prevSalad object.
+      (prevSalad) =>
+        // map prevSalad find name match.
+        // match new name
+        prevSalad.map((prevSaladName) => prevSaladName.name === name)
+          ? // overwrite state with same state
+            prevSalad
+          : // set state with new state object
+            /* salad.concat({ name, id: `${name}-${Math.random()}` }) */
+            prevSalad.concat({ name, id: `${name}-${Math.random()}` })
+    );
+  };
 
   return (
-    <div ref={saladRef} className={classes.wrapper}>
-      <h3>{user.name}</h3>
+    <div className={classes.wrapper}>
+      <h3>{name}</h3>
       <span
         className={classes.favorite}
         aria-label={favorite ? "Favorite" : "Not Favorite"}
       >
         {favorite ? "😋" : ""}
       </span>
-      <button onClick={update} className={classes.add}>
+      <button className={classes.add} onClick={setSaladContext}>
         <span className={classes.image} role="img" aria-label={name}>
           {image}
         </span>
       </button>
     </div>
   );
-};
-
-export default SaladItem;
+}
