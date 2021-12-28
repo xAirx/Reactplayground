@@ -11,7 +11,11 @@ export default function SaladProvider({ children }) {
     setSalads(
       (prevState) =>
         // Grab previous state and check for name
-        prevState.concat(prevState.includes(newState.name) ? [] : newState.name)
+        prevState.concat(
+          prevState.includes(newState.name || newState.id)
+            ? []
+            : { ...newState, id: Math.random() }
+        )
 
       /*       prevState.concat(prevState.map((prevState) => prevState.name === name) ? [] : name)
        */
@@ -40,11 +44,9 @@ export default function SaladProvider({ children }) {
   function removeSalad(id) {
     console.log("RUNNING RemoveSalad");
     console.log("THIS IS id", id);
+    console.log(salads);
 
-    setSalads((prevState) =>
-      // Grab previous state and check for name
-      prevState.filter((prevState) => prevState.id !== id)
-    );
+    return setSalads(salads.filter((salad) => salad.id !== id));
   }
 
   return (

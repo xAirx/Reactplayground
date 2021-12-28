@@ -13,10 +13,12 @@ export default function SaladSummary() {
       <h2>Your Salad</h2>
       {salads ? (
         <ul>
-          {salads.map((name, id) => (
+          {salads.map((salad) => (
             <>
-              <li key={id}>{name}</li>
-              <button onClick={() => removeSalad(id)}>Remove Salad</button>
+              <li key={salad.id}>{salad.name}</li>
+              <button onClick={() => removeSalad(salad.id)}>
+                Remove Salad
+              </button>
             </>
           ))}
         </ul>

@@ -26,7 +26,7 @@ const useStyles = createUseStyles({
   },
 });
 
-export default function SaladItem({ image, name }) {
+export default function SaladItem({ image, name, id }) {
   const classes = useStyles();
   const { user } = useUser();
   const favorite = user.favorites.includes(name);
@@ -46,7 +46,7 @@ export default function SaladItem({ image, name }) {
         onClick={() =>
           addSalad({
             name,
-            id: Math.random(),
+            id,
           })
         }
       >

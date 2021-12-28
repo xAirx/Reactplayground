@@ -12,8 +12,8 @@ import { UserContext } from "./UserProvider";
 
 export function useSalad() {
   const context = useContext(SaladContext);
-  console.log("THIS IS SALADCONTEXT", context);
-  if (context == null) {
+  /*   console.log("THIS IS SALADCONTEXT", context);
+   */ if (context == null) {
     throw new Error(`useSalad must be used within a SaladProvider.`);
   }
   return context;
