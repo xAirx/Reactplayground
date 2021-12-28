@@ -1,25 +1,21 @@
-import React, { useState, createContext } from "react";
 import { createUseStyles } from "react-jss";
 import SaladBuilder from "../SaladBuilder/SaladBuilder";
-
+import SaladSummary from "../SaladSummary/SaladSummary";
+import SaladProvider from "../Hooks/SaladProvider";
 const useStyles = createUseStyles({
   wrapper: {
     textAlign: "center",
   },
 });
 
-export const SaladContext = createContext();
+/* A context provider can be thought of as a component that exposes an API to it's children -
+that's all it is.From that, you can decide what happens internally and what the API signature
+is you expose. */
 
 export default function SaladMaker() {
   const classes = useStyles();
-  const [salad, setSalad] = useState([
-    {
-      name: "carrot",
-      id: `${"carrot"}-${Math.random()}`,
-    },
-  ]);
   return (
-    <SaladContext.Provider value={{ salad, setSalad }}>
+    <SaladProvider>
       <h1 className={classes.wrapper}>
         <span role="img" aria-label="salad">
           🥗{" "}
@@ -31,6 +27,7 @@ export default function SaladMaker() {
         </span>
       </h1>
       <SaladBuilder />
-    </SaladContext.Provider>
+      <SaladSummary />
+    </SaladProvider>
   );
 }

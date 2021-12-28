@@ -1,5 +1,4 @@
 import SaladItem from "../../components/SaladItem/Saladitem";
-import { useState, useEffect } from "react";
 import { createUseStyles } from "react-jss";
 
 const useStyles = createUseStyles({
@@ -39,14 +38,9 @@ const SaladBuilder = () => {
     },
   ];
 
-  /*   const [saladIngredients, setIngredients] = useState([]);
-
-  useEffect(() => {
-    setIngredients(ingredients);
-  }, [ingredients]);
- */
-
   const classes = useStyles();
+
+  // tabbing context instead of adding into component
 
   return (
     <>

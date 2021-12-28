@@ -1,21 +1,15 @@
 import "./App.css";
 import Navigation from "./components/Navigation/Navigation";
 import SaladMaker from "./components/SaladMaker/SaladMaker";
-import { createUseStyles } from "react-jss";
-import { UserContext } from "./components/User/User";
-
-const user = {
-  name: "Kwame",
-  favorites: ["avocado", "carrot"],
-};
+import UserProvider from "./components/Hooks/UserProvider";
 
 function App() {
   return (
     <>
-      <UserContext.Provider value={user}>
+      <UserProvider>
         <Navigation />
         <SaladMaker />
-      </UserContext.Provider>
+      </UserProvider>
     </>
   );
 }
