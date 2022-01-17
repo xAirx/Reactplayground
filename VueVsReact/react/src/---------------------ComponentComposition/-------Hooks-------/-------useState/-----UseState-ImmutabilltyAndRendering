@@ -20,8 +20,8 @@ React applies all state updates during the render phase. When React tries to app
 const [todos, setTodos] = useState(someTodosArray);
 
 const onClick = () => {
-  todos[3].completed = true;
-  setTodos(todos);
+todos[3].completed = true;
+setTodos(todos);
 }
 
 then the component will fail to re-render.
@@ -29,9 +29,9 @@ then the component will fail to re-render.
 Technically, only the outermost reference has to be immutably updated. If we change that example to:
 
 const onClick = () => {
-  const newTodos = todos.slice();
-  newTodos[3].completed = true;
-  setTodos(newTodos);
+const newTodos = todos.slice();
+newTodos[3].completed = true;
+setTodos(newTodos);
 }
 
 then we have created a new array reference and passed it in, and the component will re-render.

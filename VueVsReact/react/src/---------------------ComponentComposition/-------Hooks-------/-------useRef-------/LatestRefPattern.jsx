@@ -49,4 +49,4 @@ As a side - note, because the ref itself is a stable object, it doesn't make a d
 // 🤷‍♂️ doesn't make a difference whether you include the ref or not.
 React.useEffect(() => {}, [ref]);
 
-/* You can run into some serious bugs if you don't include all your non-ref deps though, so just please, don't ignore the linting rule for this. */
+/* You can run into some serious bugs if you don't include all your non-ref deps though, so just please, don't ignore the linting rule for this. */ ...
