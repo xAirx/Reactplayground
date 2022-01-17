@@ -1,0 +1,56 @@
+
+Anything that results in changes that can be observed when the calculation is completed, beside the return value of the calculation itself, is a side effect.
+
+Calculation should return just result of the calculation. Anything else is side-effect.
+
+    Side-effect free function is like thinking inside your head.
+
+    Side effect is like jotting what you are thinking into paper. Making phone calls or googling for answers.
+
+    If you only keep it in your head. Nobody can observe what’s going on.
+
+
+You can be interrupted and it’s as if nothing happens.
+
+    If you have side effect, you have dirty scratch paper, browser history, and a grumpy guys who have to answer
+
+    your phone call. Even if you are interrupted mid way, the browser history already made is still there.
+
+    If you make too much calculation, that grumpy guy may decide to not answer you anymore.
+
+
+
+A "side effect" is anything that affects something outside the scope of the function being executed.
+
+These can be, say, a network request, which has your code communicating with a third party
+
+(and thus making the request, causing logs to be recorded, caches to be saved or updated, all sorts of effects that are outside the function.
+
+
+
+
+There are more subtle side effects, too.
+
+  Changing the value of a closure-scoped variable is a side effect.
+
+  Pushing a new item onto an array that was passed in as an argument is a side effect.
+
+  Functions that execute without side effects are called "pure" functions: they take in arguments, and they return values.
+
+  Nothing else happens upon executing the function.
+
+  This makes the easy to test, simple to reason about, and functions that meet this -
+
+  description have all sorts of useful properties when it comes to optimization or refactoring.
+
+
+
+
+Pure functions are deterministic (meaning that, given an input, they always return the same output),
+
+but that doesn't mean that all impure functions have side effects.
+
+
+Generating a random value within a function makes it impure, but isn't a side effect, for example.
+
+React is all about pure functions, and asks that you keep several lifecycle methods pure, so these are good questions to be asking.

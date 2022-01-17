@@ -26,6 +26,7 @@ function App() {
   const searchInput = useRef(null);
 
   function handleClearSearch() {
+    // is always an object
     // current references the text input once App mounts
     searchInput.current.value = "";
     // useRef can store basically any value in its .current property

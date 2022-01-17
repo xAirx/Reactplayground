@@ -1,0 +1,13 @@
+
+In the below example we cannot grab the previous state from setFormIsValid
+Because it depends on two other states here.
+This is a good usecase for useReducer
+
+
+// sets entered email
+  const emailChangeHandler = (event) => {
+    setEnteredEmail(event.target.value);
+    setFormIsValid(
+      event.target.value.includes('@') && enteredPassword.trim().length > 6
+    )
+  };

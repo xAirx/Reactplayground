@@ -2,7 +2,9 @@ useReducer
 https://reactjs.org/docs/hooks-reference.html#usememo
 
 
-What’s a Reducer?
+/* What’s a Reducer?
+ */
+
 https://daveceddia.com/usereducer-hook-examples/
 
 /* A “reducer” is a fancy word for a function that takes 2 values and returns 1 value.
@@ -101,7 +103,7 @@ function Counter() {
   );
 }
 
-
+////////////////////
 
 //Example 2
 
@@ -114,23 +116,6 @@ const reducer = (state, action) => {
     default:
       return state
   }
-}
-const Shop = (props) => {
-  const [cart, setCart] = useState({ cart: [] })
-return (
-    <div>
-      <button
-        onClick={() =>
-          setCart({ cart: cart.concat({ id: 'p1', name: 'A Book' }) })
-        }
-      >
-        Add to Cart
-      </button>
-      <button onClick={() => setCart({cart: cart.filter(item => item.id !== 'p1')})>
-        Remove from Cart
-      </button>
-    </div>
-    })
 }
 
 
@@ -150,7 +135,6 @@ This is why it’s safe to omit from the useEffect or useCallback dependency lis
 You can also create the initial state lazily.
 
 To do this, you can pass an init function as the third argument. The initial state will be set to init(initialArg).
-
 
 It lets you extract the logic for calculating the initial state outside the reducer. This is also handy for resetting the state later in response to an action:
  */
@@ -185,7 +169,9 @@ function Counter({initialCount}) {
 
 
 
-/* /////////////////////////////Bailing out of a dispatch/////////////////////////////
+/*
+
+/////////////////////////////Bailing out of a dispatch/////////////////////////////
 
 If you return the same value from a Reducer Hook as the current state, React will bail out without rendering the children or firing effects.
 

@@ -1,4 +1,4 @@
-Authentication service
+/* Authentication service
 
 The service uses Axios for HTTP requests and Local Storage for user information & JWT.
 It provides following important functions:
@@ -8,7 +8,7 @@ It provides following important functions:
     register(): POST {username, email, password}
     getCurrentUser(): get stored user information (including JWT)
 
-services/auth.service.js
+services/auth.service.js */
 
 import axios from "axios";
 
@@ -51,3 +51,101 @@ export default {
   logout,
   getCurrentUser,
 };
+
+//the-guild.dev/blog/injectable-services-in-react
+
+// auth-service.jsx
+https: import React from "react";
+
+const { createContext, useContext } = React;
+
+const AuthContext = createContext(null);
+
+export const AuthProvider = (props) => {
+  const value = {
+    signIn: props.signIn || signIn,
+    signUp: props.signUp || signUp,
+  };
+
+  return (
+    <AuthProvider.Provider value={value}>
+      {props.children}
+    </AuthProvider.Provider>
+  );
+};
+
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+const signUp = (body) => {
+  // ...
+};
+
+const signIn = (body) => {
+  // ...
+};
+
+// auth-components.jsx
+import React from "react";
+import { useAuth } from "./auth-service";
+
+const { useCallback } = React;
+
+export const SignInButton = ({ username, password, onSignIn }) => {
+  const auth = useAuth();
+
+  const signIn = useCallback(() => {
+    auth.signIn({ username, password }).then(onSignIn);
+  }, [username, password, onSignIn]);
+
+  // ...
+};
+
+export const SignInButton = ({
+  username,
+  password,
+  verifiedPass,
+  onSignUp,
+}) => {
+  const auth = useAuth();
+
+  const signUp = useCallback(() => {
+    auth.signUp({ username, password, verifiedPass }).then(onSignUp);
+  }, [username, password, verifiedPass, onSignUp]);
+
+  // ...
+};
+
+// auth-components.test.jsx
+import React from "react";
+import { act, render, fireEvent } from "@testing-library/react";
+import { SignInButton, SignUpButton } from "./auth-components";
+
+describe("SignInButton", () => {
+  test("invokes callback on successful sign-in", () => {
+    const onSignIn = jest.fn();
+
+    const { getByTestId } = render(
+      <AuthProvider signIn={Promise.resolve}>
+        <SignInButton onSignIn={onSignIn} />
+      </AuthProvider>
+    );
+
+    // ...
+  });
+});
+
+describe("SignUpButton", () => {
+  test("invokes callback on successful sign-up", () => {
+    const onSignUp = jest.fn();
+
+    const { getByTestId } = render(
+      <AuthProvider signUp={Promise.resolve}>
+        <SignUpButton onSignUp={onSignUp} />
+      </AuthProvider>
+    );
+
+    // ...
+  });
+});
