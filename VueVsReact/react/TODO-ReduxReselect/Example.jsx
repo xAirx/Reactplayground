@@ -1,0 +1,1 @@
+https://duckduckgo.com/?q=Redux+Re-select&t=newext&atb=v306-7&ia=web

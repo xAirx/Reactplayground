@@ -1,0 +1,25 @@
+/// here our state depends on another state which might be an outdated value
+/* We cannot grab the previous state with this example
+Which is why useReducer would be a better example to use
+
+we would only get the latest state from setEmailIsValid and not entered email doing this:  */
+
+setEmailIsValid(() => enteredEmail.includes("@"));
+
+
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [emailIsValid, setEmailIsValid] = useState();
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordIsValid, setPasswordIsValid] = useState();
+  const [formIsValid, setFormIsValid] = useState(false);
+
+
+// checks if entered email includes, setting validation onBlur true or false
+  const validateEmailHandler = () => {
+    setEmailIsValid(enteredEmail.includes("@"));
+  };
+  // checks if password includes, setting validation onBlur true or false
+  const validatePasswordHandler = () => {
+    setPasswordIsValid(enteredPassword.trim().length > 6);
+
+  };

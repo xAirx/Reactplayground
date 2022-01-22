@@ -1,0 +1,9 @@
+React made the decision to flip the default from things changing out from under you to relying on closures to preserve the value of variables at the time a function is defined.
+
+https://epicreact.dev/how-react-uses-closures-to-avoid-bugs/
+
+This helps us avoid non-obvious bugs and instead forces us to confront issues before we ship to production.
+
+It can definitely be a little confusing until you have a solid grasp on how closures work.
+
+ Despite that, this is a good change, and our apps are more bug-free thanks to it. 🚫🐛🚫

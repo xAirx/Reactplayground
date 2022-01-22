@@ -1,0 +1,34 @@
+ Differences of concat() and spread operator
+
+https://dev.to/koushikrsk/differences-of-concat-and-spread-operator-1o7
+
+https://stackoverflow.com/questions/48865710/spread-operator-vs-array-concat
+
+
+I have gone through this confusion what is the difference between the array operations concat() and spread(...) operator.
+
+Both are doing the same function of adding elements to the array.
+
+I searched the internet and came with the ideas and loved to share with the world.
+
+    'concat()' will add the elements at the end of the array while spread operator
+    can be used to add elements at any part of the array.
+
+    While appending string to an array using spread operator has to be cautious as
+    spread literally spread the string to letters and add it to the array. Concat() will add the string as a single word.
+
+    When working with large arrays, spread will go out of memory and may
+    throw error while concat can handle comparatively larger arrays.
+
+    Spread operator will get the value from a generator function while concat() will
+    push the generator return to the array. This shows that the spread operator will
+    iterate through the items and append the value to the array.
+
+    Spread operator is efficient when used with single paramater as it iterates
+    through the item check its type to split and insert in to the array.
+    While concat() can used for multiple parameters that is to be inserted in
+    to the array when directly append the given elements to the array.
+    Alt Text
+
+To state, it depends upon the problem which we solve decides what to use and how to use.
+There are many other differences also, but these that got my attention to write a blog. Thanks.

@@ -29,8 +29,7 @@ const App = () => {
 };
 
 
-/* Example 2 - useEffect with Async / Await
- */
+/* Example 2 - useEffect with Async / Await */
 
 
 /* If you’re using async / await, then you will have to create a separate
@@ -42,6 +41,8 @@ const App = () => {
   // The API URL.
   const APIurl = "https://api.github.com/users"; // useState.
   const [users, setUsers] = useState([]); // useEffect.
+
+
   useEffect(() => {
     getUser();
   }, []); // Separate function.

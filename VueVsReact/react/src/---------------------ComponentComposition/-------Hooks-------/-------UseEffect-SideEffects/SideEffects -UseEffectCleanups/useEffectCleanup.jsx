@@ -1,8 +1,28 @@
 /* 5. Side-effect cleanup
 https://javascript.plainenglish.io/the-react-useeffect-hook-explained-with-examples-95259b3ac89f
 
-Some side-effects need cleanup: close a socket, clear timers.
+Some side-effects need cleanup: close a socket, clear timers. */
 
+  // checking if form is valid by checking both inputs
+  useEffect(() => {
+    // makeTimeout (debouncer)
+    // so we dont run on every keystroke
+    const checkFormIsValid = setTimeout(() => {
+      console.log("CHECKING FORM VALIDITY");
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 1000);
+
+    // The cleanup function runs before the entire statement in the useEffect, but not the first time it runs.
+    // Triggers before the effect function runs.
+    // a cleanup function runs also after a component is unmounted!
+    return () => {
+      console.log("CLEANUP when UNMOUNTED");
+      clearInterval(checkFormIsValid);
+    };
+
+/*
 If the callback of useEffect(callback, deps) returns a function,
  then useEffect() considers this as an effect cleanup:
  */

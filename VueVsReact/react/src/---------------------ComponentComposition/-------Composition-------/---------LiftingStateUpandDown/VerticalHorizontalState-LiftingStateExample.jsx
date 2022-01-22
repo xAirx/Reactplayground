@@ -3,9 +3,13 @@
 In order to experience up and down lifting of local state, the following tutorial will demonstrate it with two examples. The first example that demonstrates the lifting up of state is called: "Search a List"-example. The second example that demonstrates the lifting down of state is called "Archive in a List"-example.
 How to lift State up?
 
-The "Search a List"-example has three components. Two sibling components, a Search component and a List component, that are used in an overarching SearchableList component. All of them are function components.
+The "Search a List"-example has three components.
+Two sibling components, a Search component and a List component,
+that are used in an overarching SearchableList component.
+ All of them are function components.
 
-First, the implementation of the Search component which is a controlled component due to the input field being controlled by React: */
+First, the implementation of the Search component which
+is a controlled component due to the input field being controlled by React: */
 
 const Search = ({ children }) => {
   const [query, setQuery] = React.useState("");
