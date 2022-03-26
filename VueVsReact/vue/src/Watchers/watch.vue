@@ -44,6 +44,7 @@ export default {
     };
   },
 
+
   watch: {
     checked(checked) {
       syncWithServer(checked);
