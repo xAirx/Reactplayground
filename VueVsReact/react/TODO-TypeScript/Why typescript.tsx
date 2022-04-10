@@ -10,12 +10,18 @@ and help you code the fields right away.
 think TypeScript helps enforce some good habits in a few different ways.
 
 
+
+
+
 #1 Easier Sketching data relationships
 
 once you get used to the typings, you can start to sketch out relationships between data.
 it becomes very natural when writing new code to sketch out the interfaces and relationships between data before you start writing code,
 because you can use those right away when you start actually implementing your program, rather than just leaving them  as inert comments or
 notes or thoughts in your head.
+
+
+
 
 
 #2 Doing the proper code TS "yelling at you".
@@ -26,11 +32,18 @@ but I'm just going to ignore it because it makes my code a lot simpler."
 But if TypeScript is yelling at me I'm much more likely to do the proper thing and that's really good.
 
 
+
+
+
 #3 Avoid Complexity, cleaner code.
 
 if you're defining a type and it becomes hard to think about or it hard to describe a lot of times that's been an indication to me that "hey I'm making this more complicated than it needs to be"
 or I'm I'm trying to do this in a way that might be clever now but it isn't going to stand up to the test of time.
 I'm going to come back to this later be super confused or I'm going to have to hand this off to a co-worker and they're going to be super confused.
+
+
+
+
 
 
 #4 Better IDE support (Productivity)
@@ -47,6 +60,5 @@ that I've defined in my project as an option.
 Which is massively unhelpful. With TypeScript you avoid that issue entirely, since it knows what the types
 of things are, you get vastly better auto completion support. Which makes you a much
 happier and more productive programmer.
-
 
 */
