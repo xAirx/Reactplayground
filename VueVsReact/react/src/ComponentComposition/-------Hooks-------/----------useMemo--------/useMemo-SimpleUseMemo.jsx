@@ -38,8 +38,8 @@ How can you memoize the factorial calculation when the component re-renders? Wel
 By using useMemo(() => factorialOf(number), [number]) instead of simple factorialOf(number), React memoizes the factorial calculation.
 Let's improve <CalculateFactorial /> and memoize the factorial calculation: */
 
-https: import { useState, useMemo } from "react";
-export function CalculateFactorial() {
+import { useState, useMemo } from "react";
+export function CalculateFactorial () {
   const [number, setNumber] = useState(1);
   const [inc, setInc] = useState(0);
 
@@ -69,7 +69,7 @@ export function CalculateFactorial() {
     </div>
   );
 }
-function factorialOf(n) {
+function factorialOf (n) {
   console.log("factorialOf(n) called!");
   return n <= 0 ? 1 : n * factorialOf(n - 1);
 }
@@ -80,15 +80,20 @@ That's expected.
 However, if you click Re-render button, 'factorialOf(n) called!' isn't logged to console because useMemo(() => factorialOf(number), [number]) returns the memoized factorial calculation. Great!
  */
 
+
+
+
+
+
+
 // Example 2:
 
-function User({ age }) {
+function User ({ age }) {
   //Ucontrolled
   const [name, setName] = useState();
   //Controlled
   // we always want an empty string into our inputs
   // instead of null or undefined.
-  const [name, setName] = useState("");
   const [dark, setDark] = useState(false);
 
   const buttonStyle = {
@@ -138,7 +143,7 @@ function User({ age }) {
       <input value={name} onChange={(e) => setName(e.target.value)} />
       <button
         style={buttonStyle}
-        onClick={() => setDark((currDark) => !currDark)}
+        onClick={setDark((currDark) => !currDark)}
       >
         Toggle Theme
       </button>

@@ -13,7 +13,7 @@ optimization */
 
 import React, { useMemo } from "react";
 
-function MyComponent() {
+function MyComponent () {
   const [firstName, setFirstName] = useState("John");
   const [lastName, setlastName] = useState("Doe");
 
@@ -34,7 +34,7 @@ In the following example, reversedMessage will only be recomputed if the message
 
 import { useMemo } from "react";
 
-export default function ReversedMessage({ message }) {
+export default function ReversedMessage ({ message }) {
   const reversedMessage = useMemo(() => {
     return message.split("").reverse().join("");
   }, [message]);
