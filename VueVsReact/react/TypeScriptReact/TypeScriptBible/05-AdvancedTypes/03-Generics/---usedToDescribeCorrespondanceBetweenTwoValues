@@ -1,0 +1,51 @@
+/* Generics
+Generics allow you to create a component that can work over a variety of types, rather than a single one,
+which helps to make the component more reusable. */
+
+/*     Let's go through an example to show you what that means...
+ */
+/*
+The addID function accepts any object, and returns a new object with all the properties and values of the passed in object,
+plus an id property with random value between 0 and 1000. In short, it gives any object an ID. */
+
+
+
+const addAnID = (obj: object) => {
+    let id = Math.floor(Math.random() * 1000);
+
+    return { ...obj, id };
+};
+
+let person3 = addAnID({ name: 'John', age: 40 });
+
+console.log(person3.id); // 271
+console.log(person3.name); // ERROR: Property 'name' does not exist on type '{ id: number; }'.
+
+/* As you can see, TypeScript gives an error when we try to access the name property.
+
+This is because when we pass in an object to addID, we are not specifying what properties this
+object should have – so TypeScript has no idea what properties the object has(it hasn't "captured" them).
+
+So, the only property that TypeScript knows is on the returned object is id.
+
+    So, how can we pass in any object to addID, but still tell TypeScript what properties and values the object has ?
+    We can use a generic, <T> – where T is known as the type parameter: */
+
+// <T> is just the convention - e.g. we could use <X> or <A>
+
+const addAnID2 = <T>(obj: T) => {
+    let id = Math.floor(Math.random() * 1000);
+
+    return { ...obj, id };
+};
+
+let person4 = addAnID2({ name: 'John', age: 40 }); // change name to number and the type below changes to number because of the generic T
+
+/* What does this do?
+
+Well, now when we pass an object into addID, we have told TypeScript to capture the type – so T becomes whatever type we pass in.addID will now know what properties are on the object we pass in.
+
+But, we now have a problem: anything can be passed into addID and TypeScript will capture the type and report no problem: */
+
+console.log(person4.id); // 271
+console.log(person4.name); // Now typeScript knows that the type T becomes whatever types passed in.
