@@ -11,7 +11,7 @@ interface OrderDetail {
 }
 
 const tableOrder: OrderDetail = {
-  product: table,
+  product: { name: "table", unitPrice: 100 },
   quantity: 1,
   getTotal(discount?: number): number {
     const priceWithoutDiscount = this.product.unitPrice * this.quantity;

@@ -1,18 +1,18 @@
-interface Product {
+interface Product13 {
   name: string;
-  unitPrice: number;
+  readonly unitPrice: number;
 }
 
-interface DiscountCode {
+interface DiscountCode13 {
   code: string;
   percentage: number;
 }
 
-interface ProductWithDiscountCodes extends Product {
-  discountCodes: DiscountCode[];
+interface ProductWithDiscountCodes13 extends Product13 {
+  discountCodes: DiscountCode13[];
 }
 
-const table: ProductWithDiscountCodes = {
+const table13: ProductWithDiscountCodes13 = {
   name: "Table",
   unitPrice: 500,
   discountCodes: [

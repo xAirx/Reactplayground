@@ -11,7 +11,7 @@ interface OrderDetail {
 }
 
 const tableOrder4: OrderDetail = {
-  product: table, // must be per interface contract
+  product: { name: "table", unitPrice: 100 }, // must be per interface contract
   quantity: 1,
   getTotal(discountPercentage: number): number {
     const priceWithoutDiscount = this.product.unitPrice * this.quantity;

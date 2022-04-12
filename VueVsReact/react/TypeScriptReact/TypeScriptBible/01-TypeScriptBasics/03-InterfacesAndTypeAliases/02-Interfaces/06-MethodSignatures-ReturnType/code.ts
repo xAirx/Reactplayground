@@ -10,7 +10,7 @@ interface OrderDetail {
 }
 
 const tableOrder2: OrderDetail = {
-  product: table,
+  product: { name: "table", unitPrice: 100 },
   quantity: 1,
   getTotal(discountPercentage: number): string { // Return Type must be number as defined in the interface
     const priceWithoutDiscount = this.product.unitPrice * this.quantity;

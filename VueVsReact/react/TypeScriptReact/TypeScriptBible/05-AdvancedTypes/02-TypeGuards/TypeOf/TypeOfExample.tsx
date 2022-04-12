@@ -1,5 +1,24 @@
 /* typeof
 
+Using `typeof` to infer a type
+In this lesson, we will learn how to use the typeof operator to infer a type from an object. */
+
+/* Understanding typeof in a type annotation
+The syntax for using a typeof operator in a type annotation is as follows:
+ */
+
+let newObject: typeof existingObject;
+
+/* When TypeScript sees the typeof operator in a type annotation, it queries the object after it and extracts its type. So, in the example above, the type of existingObject is given to the newObject variable.
+ */
+
+/* This syntax can be used on function parameters as well:
+ */
+
+function (param: typeof existingObject) { ... }
+
+
+
 https://www.typescripttutorial.net/typescript-tutorial/typescript-type-guards/
 
 Let’s take a look at the following example: */

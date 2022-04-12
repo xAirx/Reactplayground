@@ -1,24 +1,21 @@
-interface IPerson {
-  id: number;
+/* Using the keyof type operator
+The keyof type operator returns a union of the keys of the type passed to it. For example:
+ */
+type AppConfig = {
+  username: string;
+  layout: string;
+};
+
+type AppConfigKey = keyof AppConfig;
+/* The AppConfigKey type resolves to "username" | "layout". Note that this also works in tandem with index signatures: */
+
+type User22 = {
   name: string;
-}
-
-type ReadonlyPerson = { readonly [P in keyof IPerson]: IPerson[P] };
-
-let billy: ReadonlyPerson = {
-  id: 1,
-  name: "Billy"
+  preferences: {
+    [key: string]: string;
+  }
 };
-billy.name = "Sally";
 
-let sally: Readonly<IPerson> = {
-  id: 1,
-  name: "Sally"
-};
-sally.name = "Billy";
-
-type Stringify<T> = { [P in keyof T]: string };
-let tim: Stringify<IPerson> = {
-  id: "1",
-  name: "Tim"
-};
+type UserPreferenceKey = keyof User22["preferences"];
+/* The UserPreferenceKey type resolves to string | number (number because accessing JavaScript object properties by number is valid syntax).
+Read about the keyof type operator here. */
