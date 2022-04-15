@@ -3,14 +3,14 @@ import { ThunkAction } from "redux-thunk";
 import {
   getProduct as getProductFromAPI,
   getProducts as getProductsFromAPI
-} from "./ProductsData";
+} from "./src/ProductsData";
 import {
   IProductsGetAllAction,
   IProductsGetSingleAction,
   IProductsLoadingAction,
   IProductsState,
   ProductsActionTypes
-} from "./ProductsTypes";
+} from "./src/ProductsTypes";
 
 const loading: ActionCreator<IProductsLoadingAction> = () => ({
   type: ProductsActionTypes.LOADING

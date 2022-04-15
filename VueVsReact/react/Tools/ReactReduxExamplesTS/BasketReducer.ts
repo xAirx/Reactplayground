@@ -1,5 +1,5 @@
 import { Reducer } from "redux";
-import { BasketActions, BasketActionTypes, IBasketState } from "./BasketTypes";
+import { BasketActions, BasketActionTypes, IBasketState } from "./src/BasketTypes";
 
 const initialBasketState: IBasketState = {
   products: []

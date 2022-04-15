@@ -3,7 +3,7 @@ import {
   IProductsState,
   ProductsActions,
   ProductsActionTypes
-} from "./ProductsTypes";
+} from "./src/ProductsTypes";
 
 const initialProductState: IProductsState = {
   currentProduct: null,

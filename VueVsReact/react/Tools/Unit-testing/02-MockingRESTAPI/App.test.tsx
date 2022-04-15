@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
+import App from "./src/App";
 import { render, cleanup, waitForElement } from "@testing-library/react";
 import axios from "axios";
 import MockAdapter from "axios-mock-adapter";
@@ -15,14 +15,14 @@ describe("App", () => {
         userId: 1,
         id: 1,
         title: "title test 1",
-        body: "body test 1"
+        body: "body test 1",
       },
       {
         userId: 1,
         id: 2,
         title: "title test 2",
-        body: "body test 2"
-      }
+        body: "body test 2",
+      },
     ]);
 
     const { getByTestId } = render(<App />);

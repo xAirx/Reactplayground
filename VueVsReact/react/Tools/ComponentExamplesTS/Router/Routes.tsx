@@ -8,15 +8,15 @@ import {
   Redirect,
   Route,
   RouteComponentProps,
-  Switch
+  Switch,
 } from "react-router-dom";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
-import Header from "./Header";
-import ProductsPage from "./ProductsPage";
-import ProductPage from "./ProductPage";
-import LoginPage from "./LoginPage";
-import NotFoundPage from "./NotFoundPage";
+import Header from "../src/Header";
+import ProductsPage from "../src/ProductsPage";
+import ProductPage from "../src/ProductPage";
+import LoginPage from "../src/LoginPage";
+import NotFoundPage from "../src/NotFoundPage";
 
 const AdminPage = React.lazy(() => import("./AdminPage"));
 
@@ -28,7 +28,7 @@ const RoutesWrap: React.FC = () => {
   );
 };
 
-const Routes: React.FC<RouteComponentProps> = props => {
+const Routes: React.FC<RouteComponentProps> = (props) => {
   const [loggedIn] = React.useState(true);
   return (
     <div>
