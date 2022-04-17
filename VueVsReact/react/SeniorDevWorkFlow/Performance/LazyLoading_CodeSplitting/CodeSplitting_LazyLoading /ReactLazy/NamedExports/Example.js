@@ -7,4 +7,4 @@ This ensures the working of tree shaking and prevents the pulling in of unused c
 export const Component = /* ... */;
 export const UnusedComponent = /* ... */;
 // Component.js
-export { Component as default } from "./Components.js";
+export { Component as default } from "./Components.js.js.js";
