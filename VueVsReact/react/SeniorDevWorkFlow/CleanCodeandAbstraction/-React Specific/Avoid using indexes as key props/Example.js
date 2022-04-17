@@ -17,7 +17,6 @@ const Items = () => {
 };
 
 
-const arr = ["item1", "item2", "item3", "item4", "item5"];
 
 
 
@@ -25,8 +24,13 @@ const arr = ["item1", "item2", "item3", "item4", "item5"];
 
 /*
 
-While this sometimes works, using the index as a key can introduce issues especially if the list is expected to change.Consider this list.
+While this sometimes works, using the index as a key can introduce issues especially if the list is expected to change.
 
-Currently, the first list item, “Item1” is at index zero, but if you added another item at the beginning of the list, the “Item1” index would change to 1 which changes the behavior of your array.
+Consider this list.
+
+const arr = ["item1", "item2", "item3", "item4", "item5"];
+
+Currently, the first list item, “Item1” is at index zero, but if you added another item at the beginning of the list, the “Item1” index would change to 1
+which changes the behavior of your array.
 
 The solution is to use a unique value as the index to ensure that the identity of the list item is maintained. */
