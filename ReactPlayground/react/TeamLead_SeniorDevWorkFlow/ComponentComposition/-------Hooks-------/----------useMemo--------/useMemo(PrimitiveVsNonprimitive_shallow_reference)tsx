@@ -1,0 +1,76 @@
+// The two types of values in JS
+
+// 1. Primitive values
+// 2. Object values
+
+// Primitive values are immutable
+// Object values are mutable
+
+// Primitive values are passed by value
+// Object values are passed by reference
+
+// Primitive values are copied when passed to a function
+// Object values are passed by reference
+
+/* Imagine this: Link: https://alexsidorenko.com/blog/react-render-props/ */
+
+//////////////// PRIMITIVE TYPES (VALUE) (Wont re-render) //////////////////
+
+/* The child component is wrapped in React.MEMO this means that it will
+only rerender when its props change.
+
+The way memo determines if props changes is by SHALLOW comparison
+
+prevProps = nextProp.
+
+    Since "ALEX" is a string which is a primitive value
+    A comporatison of a STRING === STRING = TRUE.
+
+    The child component wont re - render when we update the parent state.
+     */
+
+/////////////// NON PRIMITIVES (REFERENCE) (Will re-render) ///////////////
+/*
+When we pass non primitives, we pass objects as props
+The object is a non primitive value
+This will make the child re - render, because the comparison that memo does is shallow
+A shallow comparison will only catch value's such as primitive types.
+
+A reference for an object is stored in memory and has a different footprint when passed
+down into another component. This is because every time the parent component renders, everything
+inside the component is recreated except state. (this gives a new object reference in memory)
+
+Two distinct objects are never equal even if the yhave the same properties.
+Only comparing the same object reference with itself yields true.
+
+"When you compare two non-primitives like that {display: "flex"} === {display: "flex"}, the result will always be false. You can check it in your browser console." */
+
+////////////// Preventing re-render with non primitives //////////////
+
+/* USEMEMO // USECALLBACK HOOKS  */
+/*
+useMemo as a tool for providing a stable reference for a non - primitive prop.
+In rare cases, React may choose to forget the memoized value and recalculate
+useMemo even if dependencies don’t change.
+But as long as you use it for performance reasons, you will be fine.
+Just write your code so that it still works even if useMemo recalculates.
+In our example, even if React chooses to recalculate useMemo, the only unintentional
+thing that happens is Child re - render.
+
+You may rely on useMemo as a performance optimization, not as a semantic guarantee.
+In the future, React may choose to “forget” some previously memoized values and
+recalculate them on next render, e.g.to free memory for offscreen components.
+Write your code so that it still works without useMemo — and then add it to
+ optimize performance. */
+
+/////////// Anonymous Functions /////////////
+
+/* There are other non - primitive values like arrays and functions.It’s a common pattern in React to pass an anonymous function to an event handler.
+It’s important to understand that since the function is a non - primitive value, the same rules of comparison apply.And if we want to prevent the Child from getting re - rendered,
+we need to provide the same reference as the prop.
+
+
+    example:
+
+    Const handler = () => { console.log("click") };
+    <Child onClick={handler} /> */
